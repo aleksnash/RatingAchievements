@@ -57,17 +57,7 @@ app.get('/index3', routes.index3)
 http.createServer(app).listen(app.get('port'), ()->
 console.log('Express server listening on port ' + app.get('port')))
 
-#под name берется имя пользователя
-users =
- name:
 
-app.all('/user/:id/:op?', (req, res, next)->
- req.user = users[req.params.id]
- if (req.user)
-  next()
- else
-  next(new Error('cannot find user ' + req.params.id))
-)
 
 
 
